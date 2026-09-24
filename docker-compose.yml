@@ -1,0 +1,10 @@
+# 服务器部署模板：只需本文件 + 同目录 .env 文件
+# 用法：
+#   1. 服务器上准备 .env（参考下方环境变量说明）
+#   2. docker compose pull && docker compose up -d
+services:
+  telegram-support-bot:
+    image: ghcr.io/jaylencoder/telegram-support-bot:latest
+    restart: unless-stopped
+    env_file: .env
+    # bot 使用 long polling，无需暴露端口
